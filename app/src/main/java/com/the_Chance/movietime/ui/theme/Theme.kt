@@ -1,4 +1,4 @@
-package com.pancake.movietime.ui.theme
+package com.the_Chance.movietime.ui.theme
 
 import android.app.Activity
 import android.os.Build

@@ -1,4 +1,4 @@
-package com.pancake.movietime.ui.theme
+package com.the_Chance.movietime.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
