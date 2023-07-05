@@ -1,4 +1,4 @@
-package com.pancake.movietime
+package com.the_Chance.movietime
 
 import org.junit.Test
 
