@@ -15,7 +15,7 @@ import com.the_Chance.movietime.state.CharacterUiState
 @Composable
 fun CharacterItem(state: CharacterUiState){
     Image(
-        painter = rememberAsyncImagePainter(model = state.imageUrl),
+        painter = rememberAsyncImagePainter(model = state.image),
         contentDescription = "Character",
         modifier = Modifier
             .size(96.dp)
