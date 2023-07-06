@@ -51,7 +51,7 @@ fun ButtonWithoutIcon(
     Button(
         onClick = onClick,
         modifier = Modifier.wrapContentSize(),
-        colors = ButtonDefaults.buttonColors(Orange),
+        colors = ButtonDefaults.buttonColors(color),
     ) {
         Text(
             text = text,

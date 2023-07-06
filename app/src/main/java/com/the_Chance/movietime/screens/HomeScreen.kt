@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -66,6 +67,7 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 32.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
             TextInfo(
                 text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
@@ -88,7 +90,8 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 50.dp, bottom = 24.dp),
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalArrangement = Arrangement.SpaceAround,
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Box(
                 modifier = Modifier
