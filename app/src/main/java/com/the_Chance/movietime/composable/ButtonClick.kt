@@ -42,6 +42,31 @@ fun ButtonWithIcon(
     }
 }
 
+@Composable
+fun ButtonWithoutIcon(
+    text: String,
+    color: Color,
+    onClick: () -> Unit,
+) {
+    Button(
+        onClick = onClick,
+        modifier = Modifier.wrapContentSize(),
+        colors = ButtonDefaults.buttonColors(Orange),
+    ) {
+        Text(
+            text = text,
+            color = Color.White
+        )
+    }
+}
+
+@Composable
+fun CustomIcon(
+    iconResId: Int
+){
+    Icon(painter = painterResource(id = iconResId), contentDescription = null)
+}
+
 @Preview
 @Composable
 fun ButtonWithIconPreview() {

@@ -65,7 +65,7 @@ fun BottomCard() {
             }
             SpacerVertical(height = 8)
             Row(modifier = Modifier.padding(horizontal = 32.dp)) {
-                TextDescription(text = "Fantastic Beasts: The Secrets Of Dumbledore", size = 20)
+                TextDescription(text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore), size = 20)
             }
             SpacerVertical(height = 8)
             Row(
@@ -73,9 +73,9 @@ fun BottomCard() {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                CategoryCard(title = "Fantasy", modifier = Modifier)
+                CategoryCard(title = stringResource(R.string.fantasy), modifier = Modifier)
                 SpacerHorizontal(width = 4)
-                CategoryCard(title = "Adventure", modifier = Modifier)
+                CategoryCard(title = stringResource(R.string.adventure), modifier = Modifier)
             }
             SpacerVertical(height = 8)
              LazyRawCharacter()

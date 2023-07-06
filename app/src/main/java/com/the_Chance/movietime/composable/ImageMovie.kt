@@ -22,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,7 +39,7 @@ fun ImageMovie() {
     ) {
         Image(
             painter = painterResource(id = R.drawable.movie_image),
-            contentDescription = "Movie Image",
+            contentDescription = stringResource(R.string.movie_image),
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxWidth()
         )
@@ -50,7 +51,7 @@ fun ImageMovie() {
             horizontalArrangement = Arrangement.SpaceBetween
         ){
             CloseIcon()
-            ClockIcon()
+            ClockIcon(White60, White87)
         }
 
         Column(
@@ -69,7 +70,7 @@ fun ImageMovie() {
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.icon_play),
-                        contentDescription = "Play Movie",
+                        contentDescription = stringResource(R.string.play_movie),
                         tint = Color.White,
                         modifier = Modifier
                             .size(24.dp)
@@ -90,14 +91,17 @@ fun CloseIcon(){
         contentAlignment = Alignment.Center
     ){
         Icon(painter = painterResource(id = R.drawable.icon_close),
-            contentDescription = "Close Icon",
+            contentDescription = stringResource(R.string.close_icon),
             tint = Color.White,
             modifier = Modifier.size(24.dp))
     }
 }
 
 @Composable
-fun ClockIcon(){
+fun ClockIcon(
+    iconColor: Color,
+    textColor: Color,
+){
     Row(
         modifier = Modifier
             .clip(RectangleShape)
@@ -107,14 +111,14 @@ fun ClockIcon(){
         verticalAlignment = Alignment.CenterVertically
     ) {
         Icon(painter = painterResource(id = R.drawable.icon_clock_circle),
-            contentDescription = "Movie Time",
-        tint = White60,
+            contentDescription = stringResource(R.string.movie_time),
+        tint = iconColor,
         modifier = Modifier.size(16.dp)
         )
         SpacerHorizontal(width = 4)
         Text(
-            text = "2h 23m",
-            color = White87,
+            text = stringResource(R.string._2h_23m),
+            color = textColor,
             fontSize = 12.sp)
     }
 }
