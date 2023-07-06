@@ -2,4 +2,14 @@
     <string name="app_name">MovieTime</string>
     <string name="description">"Professor Albus Dumbledore knows the powerful Dark wizard Gellert Grindelwald is moving to seize control of the wizarding.... "</string>
     <string name="booking">Booking</string>
+    <string name="_2h_23m">2h 23m</string>
+    <string name="movie_time">Movie Time</string>
+    <string name="close_icon">Close Icon</string>
+    <string name="play_movie">Play Movie</string>
+    <string name="movie_image">Movie Image</string>
+    <string name="fantastic_beasts_the_secrets_of_dumbledore">Fantastic Beasts: The Secrets Of Dumbledore</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="adventure">Adventure</string>
+    <string name="coming_soon">Coming soon</string>
+    <string name="now_showing">Now Showing</string>
 </resources>
