@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MovieTime</string>
+    <string name="description">"Professor Albus Dumbledore knows the powerful Dark wizard Gellert Grindelwald is moving to seize control of the wizarding.... "</string>
+    <string name="booking">Booking</string>
 </resources>
