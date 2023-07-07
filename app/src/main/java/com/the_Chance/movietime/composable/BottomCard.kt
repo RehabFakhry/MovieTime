@@ -31,6 +31,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.state.CharacterUiState
@@ -39,6 +40,7 @@ import com.the_Chance.movietime.viewModel.CharacterViewModel
 
 @Composable
 fun BottomCard() {
+    val navController = rememberNavController()
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -54,13 +56,16 @@ fun BottomCard() {
         ) {
             Row() {
                 Box(modifier = Modifier.weight(1f)) {
-                    ColumnCard(rate = "6.8/10", info = "IMDb")
+                    ColumnCard(rate = stringResource(R.string._6_8_10),
+                        info = stringResource(R.string.imdb))
                 }
                 Box(modifier = Modifier.weight(1f)) {
-                    ColumnCard(rate = "63%", info = "Rotten Tomatoes")
+                    ColumnCard(rate = stringResource(R.string._63),
+                        info = stringResource(R.string.rotten_tomatoes))
                 }
                 Box(modifier = Modifier.weight(1f)) {
-                    ColumnCard(rate = "4/10", info = "IGN")
+                    ColumnCard(rate = stringResource(R.string._4_10),
+                        info = stringResource(R.string.ign))
                 }
             }
             SpacerVertical(height = 8)
@@ -83,10 +88,14 @@ fun BottomCard() {
             SpacerVertical(height = 8)
             Row(Modifier.padding(horizontal = 16.dp)) {
                 TextInfo(
-                    text = stringResource(R.string.description), 14, FontWeight.Normal)
+                    text = stringResource(R.string.description),
+                    14, FontWeight.Normal)
             }
             Spacer(modifier = Modifier.weight(1f))
-            ButtonWithIcon(iconResId = R.drawable.booking, text = stringResource(R.string.booking)) {}
+            ButtonWithIcon(
+                iconResId = R.drawable.booking,
+                text = stringResource(R.string.booking),
+                navController = navController)
             SpacerVertical(height = 8)
         }
     }
@@ -117,7 +126,7 @@ private fun LazyRawContent(
 fun CharactersItem(state: CharacterUiState) {
     Image(
         painter = rememberAsyncImagePainter(model = state.image),
-        contentDescription = "Character",
+        contentDescription = stringResource(R.string.character),
         modifier = Modifier
             .size(75.dp)
             .clip(CircleShape),

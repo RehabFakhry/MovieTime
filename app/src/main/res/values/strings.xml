@@ -15,4 +15,11 @@
     <string name="buy_tickets">Buy Tickets</string>
     <string name="_100_00">$100.00</string>
     <string name="_4_tickets">4 tickets</string>
+    <string name="_6_8_10">6.8/10</string>
+    <string name="imdb">IMDb</string>
+    <string name="rotten_tomatoes">Rotten Tomatoes</string>
+    <string name="_63">63%</string>
+    <string name="ign">IGN</string>
+    <string name="_4_10">4/10</string>
+    <string name="character">Character</string>
 </resources>

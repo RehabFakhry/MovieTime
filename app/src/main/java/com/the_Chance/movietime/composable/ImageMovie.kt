@@ -2,6 +2,7 @@ package com.the_Chance.movietime.composable
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -26,13 +27,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.ui.theme.Orange
 import com.the_Chance.movietime.ui.theme.White60
 import com.the_Chance.movietime.ui.theme.White87
 
 @Composable
-fun ImageMovie() {
+fun ImageMovie(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize(),
@@ -42,6 +45,7 @@ fun ImageMovie() {
             contentDescription = stringResource(R.string.movie_image),
             contentScale = ContentScale.Crop,
             modifier = Modifier.fillMaxWidth()
+                .clickable{navController.navigate("ticketsScreen")}
         )
         Row(
             modifier = Modifier
@@ -50,13 +54,13 @@ fun ImageMovie() {
                 .padding(top = 24.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ){
-            CloseIcon()
+            CloseIcon(navController= navController)
             ClockIcon(White60, White87)
         }
 
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .padding(top = 190.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -82,12 +86,15 @@ fun ImageMovie() {
 }
 
 @Composable
-fun CloseIcon(){
+fun CloseIcon(navController: NavController){
     Box(
         modifier = Modifier
             .clip(CircleShape)
             .background(Color.White.copy(alpha = .3f))
-            .size(32.dp),
+            .size(32.dp)
+            .clickable {
+                navController.navigateUp()
+            },
         contentAlignment = Alignment.Center
     ){
         Icon(painter = painterResource(id = R.drawable.icon_close),
@@ -126,5 +133,6 @@ fun ClockIcon(
 @Preview(showBackground = true)
 @Composable
 fun ImageIcon(){
-    ImageMovie()
+    val navController = rememberNavController()
+    ImageMovie(navController)
 }

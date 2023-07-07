@@ -23,6 +23,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.composable.ButtonWithoutIcon
 import com.the_Chance.movietime.composable.CategoryCard
@@ -37,7 +39,7 @@ import com.the_Chance.movietime.ui.theme.SecondaryTextColor
 import com.the_Chance.movietime.ui.theme.White60
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -57,7 +59,7 @@ fun HomeScreen() {
             }
         }
         SpacerVertical(height = 16)
-        HorizontalViewPager()
+        HorizontalViewPager(navController = navController)
         SpacerVertical(height = 16)
         Spacer(modifier = Modifier.weight(1f))
         Column(
@@ -126,5 +128,6 @@ fun HomeScreen() {
 @Preview(showBackground = true)
 @Composable
 fun PreviewHomeScreen() {
-    HomeScreen()
+    val navController = rememberNavController()
+    HomeScreen(navController = navController)
 }

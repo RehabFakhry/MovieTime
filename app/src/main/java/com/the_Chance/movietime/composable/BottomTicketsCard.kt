@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -23,12 +22,13 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.state.CalenderUiState
 import com.the_Chance.movietime.state.CalendersUiState
@@ -36,13 +36,12 @@ import com.the_Chance.movietime.state.TimeUiState
 import com.the_Chance.movietime.state.TimesUiState
 import com.the_Chance.movietime.ui.theme.PrimaryTextColor
 import com.the_Chance.movietime.ui.theme.SecondaryTextColor
-import com.the_Chance.movietime.ui.theme.White60
-import com.the_Chance.movietime.ui.theme.White87
 import com.the_Chance.movietime.viewModel.CalenderViewModel
 import com.the_Chance.movietime.viewModel.TimeViewModel
 
 @Composable
 fun BottomTicketsCard(){
+    val navController = rememberNavController()
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -62,7 +61,8 @@ fun BottomTicketsCard(){
             SpacerVertical(height = 12)
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier
-                .fillMaxWidth().padding(bottom = 4.dp)
+                .fillMaxWidth()
+                .padding(bottom = 4.dp)
                 .padding(horizontal = 4.dp),
                 horizontalArrangement = Arrangement.Center) {
                 Column() {
@@ -74,7 +74,8 @@ fun BottomTicketsCard(){
                 Column() {
                     ButtonWithIcon(
                         iconResId = R.drawable.booking,
-                        text = stringResource(R.string.buy_tickets)) {}
+                        text = stringResource(R.string.buy_tickets),
+                        navController = navController)
                 }
             }
         }
@@ -144,4 +145,10 @@ fun TimeItem(state: TimeUiState) {
             TextInfo(text = state.time, size = 14, FontWeight.Normal)
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewBottomTicketsCard(){
+    BottomTicketsCard()
 }

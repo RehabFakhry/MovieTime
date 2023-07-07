@@ -24,6 +24,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.composable.BottomTicketsCard
 import com.the_Chance.movietime.composable.CloseIcon
@@ -33,7 +35,7 @@ import com.the_Chance.movietime.composable.TextTitle
 import com.the_Chance.movietime.ui.theme.White87
 
 @Composable
-fun TicketsScreen(){
+fun TicketsScreen(navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -45,7 +47,7 @@ fun TicketsScreen(){
                     .fillMaxWidth()
                     .padding(start = 8.dp, top = 32.dp)
             ) {
-                CloseIcon()
+                CloseIcon(navController = navController)
             }
             SpacerVertical(height = 8)
             Row(
@@ -116,6 +118,7 @@ fun ItemSelected(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun PreviewBTicketsScreen(){
-    TicketsScreen()
+    val navController = rememberNavController()
+    TicketsScreen(navController)
 }
 
