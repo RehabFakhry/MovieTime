@@ -22,6 +22,20 @@ fun TextInfo(
 }
 
 @Composable
+fun TextCalender(
+    text:Int,
+    size: Int,
+) {
+    Text(
+        text = text.toString(),
+        fontWeight = FontWeight.Normal,
+        fontSize = size.sp,
+        color = PrimaryTextColor
+    )
+}
+
+
+@Composable
 fun TextDescription(
     text:String,
     size: Int,
@@ -39,12 +53,13 @@ fun TextDescription(
 fun TextTitle(
     title:String,
     size: Int,
+    color: Color
 ){
     Text(
         text = title,
         fontWeight = FontWeight.Normal,
         fontSize = size.sp,
-        color = Color.Gray
+        color = color
     )
 }
 
