@@ -1,31 +1,23 @@
 package com.the_Chance.movietime.screens
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.Image
+
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.pager.HorizontalPager
-import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,114 +42,89 @@ fun HomeScreen() {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Box(modifier = Modifier.fillMaxSize())
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 32.dp)
-                .padding(horizontal = 32.dp),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            ButtonWithoutIcon(text = stringResource(R.string.now_showing), color = Orange, {})
-            SpacerHorizontal(width = 8)
-            ButtonWithoutIcon(text = stringResource(R.string.coming_soon),
-                color = Color.Transparent,{})
-        }
-
-        Spacer(modifier = Modifier.weight(1f))
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 32.dp),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            ClockIcon(SecondaryTextColor, PrimaryTextColor)
-        }
-        SpacerVertical(height = 16)
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 32.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            TextInfo(
-                text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
-                size = 24, FontWeight.Medium
-            )
-        }
-        SpacerVertical(height = 16)
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 32.dp),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            CategoryCard(title = stringResource(R.string.fantasy), modifier = Modifier)
-            SpacerHorizontal(width = 4)
-            CategoryCard(title = stringResource(R.string.adventure), modifier = Modifier)
-        }
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 50.dp, bottom = 24.dp),
-            horizontalArrangement = Arrangement.SpaceAround,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Box(
+        Box(modifier = Modifier.fillMaxWidth()) {
+            Row(
                 modifier = Modifier
-                    .size(45.dp)
-                    .clip(CircleShape)
-                    .background(Orange),
-                contentAlignment = Alignment.Center
+                    .fillMaxWidth()
+                    .padding(top = 32.dp)
+                    .padding(horizontal = 32.dp),
+                horizontalArrangement = Arrangement.Center
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.icon_clapperboard_play),
-                    contentDescription = null, tint = White60
+                ButtonWithoutIcon(text = stringResource(R.string.now_showing), color = Orange, {})
+                SpacerHorizontal(width = 8)
+                ButtonWithoutIcon(text = stringResource(R.string.coming_soon),
+                    color = Color.Transparent, {})
+            }
+        }
+        SpacerVertical(height = 16)
+        HorizontalViewPager()
+        SpacerVertical(height = 16)
+        Spacer(modifier = Modifier.weight(1f))
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                ClockIcon(SecondaryTextColor, PrimaryTextColor)
+            }
+            SpacerVertical(height = 16)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                TextInfo(
+                    text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
+                    size = 24, FontWeight.Medium
                 )
             }
-            CustomIcon(R.drawable.icon_search)
-            CustomIcon(R.drawable.icon_movie)
-            CustomIcon(R.drawable.icon_user)
+            SpacerVertical(height = 16)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                CategoryCard(title = stringResource(R.string.fantasy), modifier = Modifier)
+                SpacerHorizontal(width = 4)
+                CategoryCard(title = stringResource(R.string.adventure), modifier = Modifier)
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 50.dp, bottom = 24.dp),
+                horizontalArrangement = Arrangement.SpaceAround,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(45.dp)
+                        .clip(CircleShape)
+                        .background(Orange),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.icon_clapperboard_play),
+                        contentDescription = null, tint = White60
+                    )
+                }
+                CustomIcon(R.drawable.icon_search)
+                CustomIcon(R.drawable.icon_movie)
+                CustomIcon(R.drawable.icon_user)
+            }
         }
     }
 }
-//
-//@OptIn(ExperimentalFoundationApi::class)
-//@Composable
-//fun HorizontalImages(
-//    onClickImage: () -> Unit,
-//    pagerState: PagerState,
-//    images: List<Int>,
-//    modifier: Modifier = Modifier
-//) {
-//    HorizontalPager(
-//        state = pagerState,
-//        pageCount = images.size,
-//        contentPadding = PaddingValues(horizontal = 32.dp),
-//        modifier = modifier
-//    ) {
-////        val animatedScale by animateFloatAsState(
-////            targetValue = if (it == pagerState.currentPage) 1f else 0.9f,
-////            animationSpec = tween(durationMillis = 200)
-////        )
-//
-//        Image(
-//            painter = painterResource(id = images[it % images.size]),
-//            contentDescription = "",
-//            contentScale = ContentScale.Crop,
-//            modifier = Modifier
-//                .aspectRatio(3 / 4f)
-////                .scale(animatedScale)
-//                .clip(MaterialTheme.shapes.extraLarge)
-//                .clickable { onClickImage() }
-//        )
-//    }
-//}
-
 
 @Preview(showBackground = true)
 @Composable
-fun PreviewHome() {
+fun PreviewHomeScreen() {
     HomeScreen()
 }
