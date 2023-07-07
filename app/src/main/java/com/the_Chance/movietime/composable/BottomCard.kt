@@ -27,18 +27,20 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.state.CharacterUiState
 import com.the_Chance.movietime.state.CharactersUiState
-import com.the_Chance.movietime.ui.theme.White60
 import com.the_Chance.movietime.viewModel.CharacterViewModel
 
 @Composable
 fun BottomCard() {
+    val navController = rememberNavController()
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -54,18 +56,22 @@ fun BottomCard() {
         ) {
             Row() {
                 Box(modifier = Modifier.weight(1f)) {
-                    ColumnCard(rate = "6.8/10", info = "IMDb")
+                    ColumnCard(rate = stringResource(R.string._6_8_10),
+                        info = stringResource(R.string.imdb))
                 }
                 Box(modifier = Modifier.weight(1f)) {
-                    ColumnCard(rate = "63%", info = "Rotten Tomatoes")
+                    ColumnCard(rate = stringResource(R.string._63),
+                        info = stringResource(R.string.rotten_tomatoes))
                 }
                 Box(modifier = Modifier.weight(1f)) {
-                    ColumnCard(rate = "4/10", info = "IGN")
+                    ColumnCard(rate = stringResource(R.string._4_10),
+                        info = stringResource(R.string.ign))
                 }
             }
             SpacerVertical(height = 8)
             Row(modifier = Modifier.padding(horizontal = 32.dp)) {
-                TextDescription(text = "Fantastic Beasts: The Secrets Of Dumbledore", size = 20)
+                TextInfo(text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
+                    size = 20, FontWeight.Medium)
             }
             SpacerVertical(height = 8)
             Row(
@@ -73,19 +79,23 @@ fun BottomCard() {
                     .fillMaxWidth(),
                 horizontalArrangement = Arrangement.Center
             ) {
-                CategoryCard(title = "Fantasy", modifier = Modifier)
+                CategoryCard(title = stringResource(R.string.fantasy), modifier = Modifier)
                 SpacerHorizontal(width = 4)
-                CategoryCard(title = "Adventure", modifier = Modifier)
+                CategoryCard(title = stringResource(R.string.adventure), modifier = Modifier)
             }
             SpacerVertical(height = 8)
              LazyRawCharacter()
             SpacerVertical(height = 8)
             Row(Modifier.padding(horizontal = 16.dp)) {
                 TextInfo(
-                    text = stringResource(R.string.description), 14)
+                    text = stringResource(R.string.description),
+                    14, FontWeight.Normal)
             }
             Spacer(modifier = Modifier.weight(1f))
-            ButtonWithIcon(iconResId = R.drawable.booking, text = stringResource(R.string.booking)) {}
+            ButtonWithIcon(
+                iconResId = R.drawable.booking,
+                text = stringResource(R.string.booking),
+                navController = navController)
             SpacerVertical(height = 8)
         }
     }
@@ -116,7 +126,7 @@ private fun LazyRawContent(
 fun CharactersItem(state: CharacterUiState) {
     Image(
         painter = rememberAsyncImagePainter(model = state.image),
-        contentDescription = "Character",
+        contentDescription = stringResource(R.string.character),
         modifier = Modifier
             .size(75.dp)
             .clip(CircleShape),

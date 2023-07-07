@@ -12,25 +12,26 @@ import com.the_Chance.movietime.ui.theme.PrimaryTextColor
 fun TextInfo(
     text:String,
     size: Int,
+    weight: FontWeight
 ) {
     Text(
         text = text,
-        fontWeight = FontWeight.Normal,
+        fontWeight = weight,
         fontSize = size.sp,
-        color = PrimaryTextColor
+        color = PrimaryTextColor,
+        textAlign = TextAlign.Center
     )
 }
 
 @Composable
-fun TextDescription(
-    text:String,
+fun TextCalender(
+    text:Int,
     size: Int,
 ) {
     Text(
-        text = text,
+        text = text.toString(),
+        fontWeight = FontWeight.Normal,
         fontSize = size.sp,
-        fontWeight = FontWeight.Medium,
-        textAlign = TextAlign.Center,
         color = PrimaryTextColor
     )
 }
@@ -39,12 +40,14 @@ fun TextDescription(
 fun TextTitle(
     title:String,
     size: Int,
+    color: Color
 ){
     Text(
         text = title,
         fontWeight = FontWeight.Normal,
         fontSize = size.sp,
-        color = Color.Gray
+        color = color,
+        textAlign = TextAlign.Center
     )
 }
 
