@@ -8,8 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.the_Chance.movietime.ui.theme.SecondaryTextColor
 
 @Composable
 fun CategoryCard(
@@ -22,12 +24,12 @@ fun CategoryCard(
             modifier = modifier
                 .border(
                     width = 0.dp,
-                    color = Color.Gray,
+                    color = SecondaryTextColor,
                     shape = CircleShape
                 )
                 .padding(horizontal = 4.dp)
         ) {
-            TextInfo(text = title, size = 14)
+            TextInfo(text = title, size = 14, FontWeight.Normal)
         }
     }
 }

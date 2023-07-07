@@ -12,10 +12,11 @@ import com.the_Chance.movietime.ui.theme.PrimaryTextColor
 fun TextInfo(
     text:String,
     size: Int,
+    weight: FontWeight
 ) {
     Text(
         text = text,
-        fontWeight = FontWeight.Normal,
+        fontWeight = weight,
         fontSize = size.sp,
         color = PrimaryTextColor
     )
@@ -30,21 +31,6 @@ fun TextCalender(
         text = text.toString(),
         fontWeight = FontWeight.Normal,
         fontSize = size.sp,
-        color = PrimaryTextColor
-    )
-}
-
-
-@Composable
-fun TextDescription(
-    text:String,
-    size: Int,
-) {
-    Text(
-        text = text,
-        fontSize = size.sp,
-        fontWeight = FontWeight.Medium,
-        textAlign = TextAlign.Center,
         color = PrimaryTextColor
     )
 }

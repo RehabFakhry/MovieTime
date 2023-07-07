@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -34,7 +35,6 @@ import coil.compose.rememberAsyncImagePainter
 import com.the_Chance.movietime.R
 import com.the_Chance.movietime.state.CharacterUiState
 import com.the_Chance.movietime.state.CharactersUiState
-import com.the_Chance.movietime.ui.theme.White60
 import com.the_Chance.movietime.viewModel.CharacterViewModel
 
 @Composable
@@ -65,7 +65,8 @@ fun BottomCard() {
             }
             SpacerVertical(height = 8)
             Row(modifier = Modifier.padding(horizontal = 32.dp)) {
-                TextDescription(text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore), size = 20)
+                TextInfo(text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
+                    size = 20, FontWeight.Medium)
             }
             SpacerVertical(height = 8)
             Row(
@@ -82,7 +83,7 @@ fun BottomCard() {
             SpacerVertical(height = 8)
             Row(Modifier.padding(horizontal = 16.dp)) {
                 TextInfo(
-                    text = stringResource(R.string.description), 14)
+                    text = stringResource(R.string.description), 14, FontWeight.Normal)
             }
             Spacer(modifier = Modifier.weight(1f))
             ButtonWithIcon(iconResId = R.drawable.booking, text = stringResource(R.string.booking)) {}
