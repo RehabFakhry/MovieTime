@@ -1,5 +1,6 @@
 package com.the_Chance.movietime.composable
 
+import android.text.Layout.Alignment
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -18,7 +19,8 @@ fun TextInfo(
         text = text,
         fontWeight = weight,
         fontSize = size.sp,
-        color = PrimaryTextColor
+        color = PrimaryTextColor,
+        textAlign = TextAlign.Center
     )
 }
 
