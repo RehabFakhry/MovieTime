@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -18,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +30,6 @@ import com.the_Chance.movietime.composable.CloseIcon
 import com.the_Chance.movietime.composable.SpacerHorizontal
 import com.the_Chance.movietime.composable.SpacerVertical
 import com.the_Chance.movietime.composable.TextTitle
-import com.the_Chance.movietime.ui.theme.PrimaryTextColor
 import com.the_Chance.movietime.ui.theme.White87
 
 @Composable
@@ -47,7 +49,9 @@ fun TicketsScreen(){
             }
             SpacerVertical(height = 8)
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
                 horizontalArrangement = Arrangement.Center
             ) {
                 Image(
@@ -55,11 +59,24 @@ fun TicketsScreen(){
                     contentDescription = null
                 )
             }
-            SpacerVertical(height = 100)
+            SpacerVertical(height = 24)
             Row(
-                modifier = Modifier.fillMaxWidth()
-                    .padding(16.dp),
-                horizontalArrangement = Arrangement.spacedBy(16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 8.dp),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.image_sets),
+                    contentDescription = null,
+                    contentScale = ContentScale.FillWidth
+                )
+            }
+            SpacerVertical(height = 16)
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth().padding(horizontal = 8.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly
             ) {
                 ItemSelected(title = "Available", icon = R.drawable.icon_dot_white)
                 ItemSelected(title = "Taken", icon = R.drawable.icon_dot_gray)
@@ -80,16 +97,19 @@ fun ItemSelected(
     tint: Color = Color.Unspecified,
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = Modifier.wrapContentWidth().wrapContentHeight(),
         colors = CardDefaults.cardColors(Color.Black)) {
-        Icon(
-            modifier = modifier.size(6.dp),
-            painter = painterResource(icon),
-            contentDescription = contentDescription,
-            tint = tint
-        )
-        SpacerHorizontal(width = 4)
-        TextTitle(title =title , size =12 , color = White87 )
+        Row(horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically) {
+            Icon(
+                modifier = modifier.size(14.dp),
+                painter = painterResource(icon),
+                contentDescription = contentDescription,
+                tint = tint
+            )
+            SpacerHorizontal(width = 8)
+            TextTitle(title =title , size =14 , color = White87 )
+        }
     }
 }
 

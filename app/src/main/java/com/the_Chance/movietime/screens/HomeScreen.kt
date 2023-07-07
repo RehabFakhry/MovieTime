@@ -1,24 +1,34 @@
 package com.the_Chance.movietime.screens
 
+import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.the_Chance.movietime.R
@@ -40,6 +50,7 @@ fun HomeScreen() {
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
+        Box(modifier = Modifier.fillMaxSize())
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -50,7 +61,7 @@ fun HomeScreen() {
             ButtonWithoutIcon(text = stringResource(R.string.now_showing), color = Orange, {})
             SpacerHorizontal(width = 8)
             ButtonWithoutIcon(text = stringResource(R.string.coming_soon),
-                color = Orange.copy(alpha = 0.1f), {})
+                color = Color.Transparent,{})
         }
 
         Spacer(modifier = Modifier.weight(1f))
@@ -71,7 +82,7 @@ fun HomeScreen() {
         ) {
             TextInfo(
                 text = stringResource(R.string.fantastic_beasts_the_secrets_of_dumbledore),
-                size = 24,
+                size = 24, FontWeight.Medium
             )
         }
         SpacerVertical(height = 16)
@@ -106,11 +117,44 @@ fun HomeScreen() {
                 )
             }
             CustomIcon(R.drawable.icon_search)
-            CustomIcon(R.drawable.icon_user)
+            CustomIcon(R.drawable.icon_movie)
             CustomIcon(R.drawable.icon_user)
         }
     }
 }
+//
+//@OptIn(ExperimentalFoundationApi::class)
+//@Composable
+//fun HorizontalImages(
+//    onClickImage: () -> Unit,
+//    pagerState: PagerState,
+//    images: List<Int>,
+//    modifier: Modifier = Modifier
+//) {
+//    HorizontalPager(
+//        state = pagerState,
+//        pageCount = images.size,
+//        contentPadding = PaddingValues(horizontal = 32.dp),
+//        modifier = modifier
+//    ) {
+////        val animatedScale by animateFloatAsState(
+////            targetValue = if (it == pagerState.currentPage) 1f else 0.9f,
+////            animationSpec = tween(durationMillis = 200)
+////        )
+//
+//        Image(
+//            painter = painterResource(id = images[it % images.size]),
+//            contentDescription = "",
+//            contentScale = ContentScale.Crop,
+//            modifier = Modifier
+//                .aspectRatio(3 / 4f)
+////                .scale(animatedScale)
+//                .clip(MaterialTheme.shapes.extraLarge)
+//                .clickable { onClickImage() }
+//        )
+//    }
+//}
+
 
 @Preview(showBackground = true)
 @Composable
