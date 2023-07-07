@@ -57,12 +57,12 @@ fun BottomTicketsCard(){
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             LazyRawCalender()
-            SpacerVertical(height = 16)
+            SpacerVertical(height = 12)
             LazyRawTime()
-            SpacerVertical(height = 16)
+            SpacerVertical(height = 12)
             Spacer(modifier = Modifier.weight(1f))
             Row(modifier = Modifier
-                .fillMaxWidth().padding(bottom = 8.dp)
+                .fillMaxWidth().padding(bottom = 4.dp)
                 .padding(horizontal = 4.dp),
                 horizontalArrangement = Arrangement.Center) {
                 Column() {

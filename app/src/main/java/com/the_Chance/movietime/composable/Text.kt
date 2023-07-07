@@ -1,6 +1,5 @@
 package com.the_Chance.movietime.composable
 
-import android.text.Layout.Alignment
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -47,7 +46,8 @@ fun TextTitle(
         text = title,
         fontWeight = FontWeight.Normal,
         fontSize = size.sp,
-        color = color
+        color = color,
+        textAlign = TextAlign.Center
     )
 }
 

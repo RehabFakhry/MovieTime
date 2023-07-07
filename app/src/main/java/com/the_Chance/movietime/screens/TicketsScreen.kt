@@ -43,7 +43,7 @@ fun TicketsScreen(){
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, top = 32.dp)
+                    .padding(start = 8.dp, top = 32.dp)
             ) {
                 CloseIcon()
             }
